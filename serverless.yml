@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+
+
+
+service: paste-brigand-me
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+plugins:
+  - serverless-rust
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+provider:
+  name: aws
+  runtime: rust
+  memorySize: 1024
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  timeout: 7
+  iamRoleStatements: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+functions:
+  paste:
+    handler: paste.lambda
+    environment: {}
+    rust:
+      # cargoFlags: '--features lambda'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    events:
+      - http:
+          method: GET
+          path: /
+      - http:
+          method: GET
+          path: /view/{id}
+          request:
+            parameters:
+              paths:
+                id: true
+      - http:
+          method: GET
+          path: /raw/{id}
+          request:
+            parameters:
+              paths:
+                id: true
+      - http:
+          method: GET
+          path: /view
+      - http:
+          method: GET
+          path: /raw

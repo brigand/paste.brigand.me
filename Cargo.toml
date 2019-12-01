@@ -1,0 +1,11 @@
+[package]
+name = "paste"
+version = "0.1.0"
+authors = ["Frankie Bagnardi <f.bagnardi@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "lambda"
+path = "src/bin/lambda.rs"
+
+[dependencies]
