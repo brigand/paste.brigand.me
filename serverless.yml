@@ -30,7 +30,8 @@ service: paste-brigand-me
 
 
 
-
+package:
+  individually: true
 plugins:
   - serverless-rust
 
@@ -57,7 +58,7 @@ plugins:
 provider:
   name: aws
   runtime: rust
-  memorySize: 1024
+  memorySize: 512
   region: us-east-1
   stage: ${opt:stage, 'dev'}
   timeout: 7

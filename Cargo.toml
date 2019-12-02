@@ -9,3 +9,6 @@ name = "lambda"
 path = "src/bin/lambda.rs"
 
 [dependencies]
+http = "0.1"
+lambda_http = "0.1"
+lambda_runtime = "0.2"
